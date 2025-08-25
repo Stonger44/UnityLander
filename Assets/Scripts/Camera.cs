@@ -3,14 +3,19 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     [SerializeField] private GameObject _ship;
-    [SerializeField] private Vector3 _cameraOffset;
+    [SerializeField] private Vector3 _cameraOffset = new Vector3(0, 0, -10);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (_ship == null)
         {
-            Debug.LogError("Ship is null!");
+            _ship = GameObject.FindGameObjectWithTag("Player");
+
+            if (_ship == null)
+            {
+                Debug.LogError("Ship is null!");
+            }
         }
     }
 
