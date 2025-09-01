@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4382368862902103471}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,3 +157,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _impulseStrength: 10
   _torqueStrength: 10
+  _thrust: {fileID: 6443696733680229253, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _rotate: {fileID: 8896541248295577275, guid: 052faaac586de48259a63d0c4782560b, type: 3}

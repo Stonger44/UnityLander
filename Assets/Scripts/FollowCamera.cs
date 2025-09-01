@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private GameObject _ship;
     [SerializeField] private Vector3 _cameraOffset = new Vector3(0, 0, -10);
