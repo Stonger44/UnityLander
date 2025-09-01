@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour
 
     private void CheckInput()
     {
-        // CheckThrust();
+        CheckThrust();
         CheckRotation();
     }
 
@@ -36,9 +36,9 @@ public class Ship : MonoBehaviour
         {
             Debug.Log("Thrusting!");
         }
-        if (_rotate.action.WasReleasedThisFrame())
+        if (_thrust.action.WasReleasedThisFrame())
         {
-            Debug.Log("Not Thrusting!");
+            Debug.Log("Stop Thrusting!");
         }
     }
 
