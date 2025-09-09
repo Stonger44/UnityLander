@@ -3,19 +3,29 @@ using UnityEngine.InputSystem;
 
 public class Ship : MonoBehaviour
 {
+    [Header("Body")]
+    [SerializeField] private Rigidbody rb;
+
     [Header("Movement")]
-    [SerializeField] private float _impulseStrength = 10f;
-    [SerializeField] private float _torqueStrength = 10f;
+    [SerializeField] private float _thrustStrength = 10;
+    [SerializeField] private float _torqueStrength = 10;
 
     [Header("Input")]
     [SerializeField] private InputActionReference _thrust;
     [SerializeField] private InputActionReference _rotate;
+    [SerializeField] private bool _isThrusting;
     private float _rotateInput;
+    
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,25 +44,31 @@ public class Ship : MonoBehaviour
     {
         if (_thrust.action.WasPerformedThisFrame())
         {
-            Debug.Log("Thrusting!");
+            _isThrusting = true;
         }
         if (_thrust.action.WasReleasedThisFrame())
         {
-            Debug.Log("Stop Thrusting!");
+            _isThrusting = false;
+        }
+
+        Thrust(_isThrusting);
+    }
+
+    private void Thrust(bool isThrusting = false)
+    {
+        if (isThrusting)
+        {
+            rb.AddForce(this.transform.up * _thrustStrength);
         }
     }
 
     private void CheckRotation()
     {
         _rotateInput = _rotate.action.ReadValue<float>();
+        print($"Rotate Input: {_rotateInput}");
 
-        if (_rotateInput < 0)
-        {   
-            Debug.Log("Rotating Left");
-        }
-        else if (_rotateInput > 0)
-        {
-            Debug.Log("Rotating Right");
-        }
+        // this.transform.rotation *= Quaternion.Euler(0, 0, -_rotateInput * _torqueStrength);
+
+        // rb.AddTorque(Vector3.up * _torqueStrength);
     }
 }

@@ -120,6 +120,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3095210291669811014}
   - component: {fileID: 4382368862902103471}
+  - component: {fileID: 154402736513967278}
+  - component: {fileID: 6004934941399878244}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -156,10 +158,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d33eab6465c9124fb28563a152b8143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _impulseStrength: 10
+  rb: {fileID: 154402736513967278}
+  _thrustStrength: 10
   _torqueStrength: 10
   _thrust: {fileID: 6443696733680229253, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _rotate: {fileID: 8896541248295577275, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _isThrusting: 0
+--- !u!54 &154402736513967278
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039167561421673851}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 5
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 56
+  m_CollisionDetection: 0
+--- !u!65 &6004934941399878244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039167561421673851}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9191584766337146562
 GameObject:
   m_ObjectHideFlags: 0
