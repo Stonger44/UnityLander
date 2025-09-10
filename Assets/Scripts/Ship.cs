@@ -20,6 +20,7 @@ public class Ship : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        rb.angularDamping = 25;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -65,10 +66,8 @@ public class Ship : MonoBehaviour
     private void CheckRotation()
     {
         _rotateInput = _rotate.action.ReadValue<float>();
-        print($"Rotate Input: {_rotateInput}");
-
-        // this.transform.rotation *= Quaternion.Euler(0, 0, -_rotateInput * _torqueStrength);
-
-        // rb.AddTorque(Vector3.up * _torqueStrength);
+        // print($"Rotate Input: {_rotateInput}");
+        
+        rb.AddTorque(Vector3.back * _rotateInput * _torqueStrength);
     }
 }

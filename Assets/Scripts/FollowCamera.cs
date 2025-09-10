@@ -3,7 +3,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private GameObject _ship;
-    [SerializeField] private Vector3 _cameraOffset = new Vector3(0, 0, -10);
+    [SerializeField] private Vector3 _cameraOffset = new Vector3(0, 0, -25);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
